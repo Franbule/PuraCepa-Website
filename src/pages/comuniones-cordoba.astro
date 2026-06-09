@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import CTAFinal from '../components/home/CTAFinal.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+---
+
+<Layout
+  title="Catering para Comuniones en Córdoba — Celebra con Estilo | PuraCepa Catering"
+  description="Catering para comuniones en Córdoba con menús familiares, mesa dulce personalizada y servicio de primera. Hacemos que la comunión de tu hijo sea un día para siempre."
+  canonical="/comuniones-cordoba"
+>
+  <!-- Hero -->
+  <section class="relative pt-32 pb-24 bg-negro text-white overflow-hidden">
+    <Image
+      src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1920&q=80&fit=crop&auto=format"
+      alt="Catering para comunión en Córdoba con mesa elegante y flores"
+      width={1920}
+      height={700}
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+      loading="eager"
+    />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="section-label text-dorado-claro">Comuniones en Córdoba</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+        Catering para Comuniones en Córdoba — Celebra con Estilo
+      </h1>
+      <p class="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+        La primera comunión de tu hijo es un momento único que merece una
+        celebración a su altura. En PuraCepa Catering creamos banquetes
+        familiares cálidos, elegantes y llenos de detalles.
+      </p>
+      <a href="/contacto" class="inline-block bg-dorado text-white px-8 py-4 text-sm font-medium tracking-widest uppercase hover:bg-dorado-claro transition-colors duration-300">
+        Solicitar presupuesto
+      </a>
+    </div>
+  </section>
+
+  <!-- Contenido -->
+  <section class="py-20 bg-marfil">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="section-label">Catering comuniones Córdoba</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-negro font-light mb-6">
+            Una celebración para toda la familia
+          </h2>
+          <p class="text-secundario leading-relaxed mb-5">
+            Nuestro catering para comuniones en Córdoba está pensado para que
+            toda la familia disfrute: desde los más pequeños hasta los abuelos.
+            Diseñamos menús que contentan a todos los paladares, con opciones
+            para cada edad y necesidad.
+          </p>
+          <p class="text-secundario leading-relaxed mb-5">
+            Incluimos mesas dulces personalizadas con el nombre del festejado,
+            chuches para los niños, bollería artesana y la tarta de comunión
+            perfecta. Todo coordinado para que tú solo tengas que disfrutar.
+          </p>
+          <ul class="space-y-3 text-sm text-secundario">
+            {[
+              'Menús pensados para todas las edades',
+              'Mesa dulce personalizada',
+              'Opciones para celíacos, alérgicos e intolerancias',
+              'Animación y coordinación del servicio',
+              'Decoración incluida en la propuesta',
+              'Bodega familiar y zumos para los niños',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-dorado mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <Image
+            src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80&fit=crop&auto=format"
+            alt="Mesa dulce y repostería para comunión organizada por PuraCepa Catering en Córdoba"
+            width={900}
+            height={700}
+            class="w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links internos -->
+  <section class="py-12 bg-beige/30">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-secundario text-sm">
+        También organizamos:{' '}
+        <a href="/catering-bodas-cordoba" class="text-dorado hover:underline">Catering bodas Córdoba</a>,{' '}
+        <a href="/catering-eventos-corporativos-cordoba" class="text-dorado hover:underline">Eventos corporativos</a>,{' '}
+        <a href="/menus-catering-cordoba" class="text-dorado hover:underline">Ver menús disponibles</a>
+      </p>
+    </div>
+  </section>
+
+  <CTAFinal />
+  <ContactSection />
+</Layout>

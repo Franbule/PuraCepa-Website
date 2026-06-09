@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import { services } from '../../data/services';
+---
+
+<section id="servicios" class="py-24 lg:py-32 bg-marfil">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Cabecera -->
+    <div class="text-center mb-16" data-animate>
+      <span class="section-label">Lo que ofrecemos</span>
+      <span class="gold-line mx-auto mb-6"></span>
+      <h2 class="font-serif text-4xl sm:text-5xl text-negro font-light mb-5">
+        Nuestros Servicios
+      </h2>
+      <p class="text-secundario max-w-xl mx-auto text-base leading-relaxed">
+        Cada celebración merece una propuesta gastronómica única. Diseñamos
+        experiencias a medida para cualquier tipo de evento.
+      </p>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, i) => (
+        <article
+          data-animate
+          data-delay={String(i * 100)}
+          class="group bg-white overflow-hidden border border-beige hover:border-dorado/40 transition-colors duration-300"
+        >
+          <div class="relative overflow-hidden aspect-[4/3]">
+            <Image
+              src={service.image}
+              alt={service.imageAlt}
+              width={800}
+              height={600}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-7">
+            <h3 class="font-serif text-xl text-negro mb-3 font-light group-hover:text-dorado transition-colors duration-200">
+              {service.title}
+            </h3>
+            <p class="text-secundario text-sm leading-relaxed mb-5">
+              {service.description}
+            </p>
+            <a
+              href={service.href}
+              class="inline-flex items-center gap-2 text-dorado text-xs font-medium tracking-widest uppercase hover:gap-3 transition-all duration-200"
+            >
+              Saber más
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

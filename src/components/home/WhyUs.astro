@@ -1,0 +1,64 @@
+---
+const reasons = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
+    title: 'Ingredientes de calidad',
+    description:
+      'Seleccionamos los mejores productos locales y de temporada, apostando por productores de Córdoba y Andalucía. La materia prima de calidad es la base de todo.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`,
+    title: 'Servicio personalizado',
+    description:
+      'Cada evento es único y merece una propuesta a medida. Nos reunimos contigo para entender tu visión y diseñar una experiencia que supere tus expectativas.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>`,
+    title: 'Equipo profesional',
+    description:
+      'Chefs con formación de alto nivel, personal de sala experimentado y coordinadores de eventos dedicados. Un equipo que trabaja en equipo para que todo sea perfecto.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`,
+    title: 'Experiencias memorables',
+    description:
+      'No solo servimos comida: creamos atmósferas, cuidamos cada detalle y trabajamos para que tus invitados se vayan con una experiencia que recordarán para siempre.',
+  },
+];
+---
+
+<section class="py-24 lg:py-32 bg-marfil" id="por-que-elegirnos">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Cabecera -->
+    <div class="text-center mb-16" data-animate>
+      <span class="section-label">Nuestra diferencia</span>
+      <span class="gold-line mx-auto mb-6"></span>
+      <h2 class="font-serif text-4xl sm:text-5xl text-negro font-light mb-5">
+        ¿Por qué elegir PuraCepa?
+      </h2>
+      <p class="text-secundario max-w-xl mx-auto text-base leading-relaxed">
+        Llevamos la gastronomía a otro nivel gracias a cuatro pilares
+        que definen todo lo que hacemos.
+      </p>
+    </div>
+
+    <!-- Grid de razones -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {reasons.map((reason, i) => (
+        <div
+          data-animate
+          data-delay={String(i * 100)}
+          class="text-center p-8 border border-beige hover:border-dorado/40 transition-colors duration-300 group"
+        >
+          <div class="inline-flex items-center justify-center w-14 h-14 border border-dorado/30 text-dorado mb-6 group-hover:bg-dorado group-hover:text-white transition-all duration-300">
+            <Fragment set:html={reason.icon} />
+          </div>
+          <h3 class="font-serif text-xl text-negro mb-3 font-light">{reason.title}</h3>
+          <p class="text-secundario text-sm leading-relaxed">{reason.description}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

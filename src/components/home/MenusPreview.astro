@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import { featuredMenus } from '../../data/menus';
+---
+
+<section class="py-24 lg:py-32 bg-negro text-white" id="menus-preview">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Cabecera -->
+    <div class="text-center mb-16" data-animate>
+      <span class="section-label text-dorado-claro">Alta gastronomía</span>
+      <span class="gold-line mx-auto mb-6"></span>
+      <h2 class="font-serif text-4xl sm:text-5xl font-light mb-5">
+        Menús Destacados
+      </h2>
+      <p class="text-white/60 max-w-xl mx-auto text-base leading-relaxed font-light">
+        Una selección de nuestras propuestas gastronómicas. Cada menú puede
+        adaptarse completamente a tus preferencias y las de tus invitados.
+      </p>
+    </div>
+
+    <!-- Cards de menús -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+      {featuredMenus.map((menu, i) => (
+        <article
+          data-animate
+          data-delay={String(i * 150)}
+          class="group relative overflow-hidden border border-white/10 hover:border-dorado/50 transition-colors duration-300"
+        >
+          <div class="relative overflow-hidden aspect-[16/9]">
+            <Image
+              src={menu.image}
+              alt={menu.imageAlt}
+              width={800}
+              height={450}
+              class="w-full h-full object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-85"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-negro via-negro/30 to-transparent"></div>
+          </div>
+          <div class="p-7 relative -mt-16 z-10">
+            <span class="text-dorado text-[0.65rem] tracking-widest uppercase font-medium block mb-2">
+              {menu.eventType}
+            </span>
+            <h3 class="font-serif text-2xl font-light mb-2">{menu.name}</h3>
+            <p class="text-white/60 text-sm italic mb-4 font-light">{menu.tagline}</p>
+            <p class="text-dorado-claro text-sm font-medium">{menu.price}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center" data-animate>
+      <a
+        href="/menus-catering-cordoba"
+        class="inline-block border border-dorado text-dorado px-10 py-4 text-sm font-medium tracking-widest uppercase hover:bg-dorado hover:text-white transition-all duration-300"
+      >
+        Ver todos los menús
+      </a>
+    </div>
+
+  </div>
+</section>

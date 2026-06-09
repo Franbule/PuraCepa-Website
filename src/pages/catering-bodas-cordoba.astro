@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import CTAFinal from '../components/home/CTAFinal.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+---
+
+<Layout
+  title="Catering para Bodas en Córdoba — Gastronomía de Lujo | PuraCepa Catering"
+  description="Catering para bodas en Córdoba con menús exclusivos, servicio impecable y atención personalizada. Haz de tu boda una experiencia gastronómica que tus invitados recordarán."
+  canonical="/catering-bodas-cordoba"
+>
+  <!-- Hero -->
+  <section class="relative pt-32 pb-24 bg-negro text-white overflow-hidden">
+    <Image
+      src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1920&q=80&fit=crop&auto=format"
+      alt="Elegante mesa de boda con decoración floral y vajilla de lujo para catering en Córdoba"
+      width={1920}
+      height={700}
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+      loading="eager"
+    />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="section-label text-dorado-claro">Bodas en Córdoba</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+        Catering para Bodas en Córdoba — Gastronomía de Lujo para tu Gran Día
+      </h1>
+      <p class="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+        El día más importante de tu vida merece una gastronomía a la altura.
+        En PuraCepa Catering creamos banquetes de boda personalizados que
+        reflejan vuestra historia y dejan a vuestros invitados sin palabras.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contacto" class="inline-block bg-dorado text-white px-8 py-4 text-sm font-medium tracking-widest uppercase hover:bg-dorado-claro transition-colors duration-300">
+          Solicitar presupuesto
+        </a>
+        <a href="/menus-catering-cordoba" class="inline-block border border-white/50 text-white px-8 py-4 text-sm font-medium tracking-widest uppercase hover:bg-white/10 transition-colors duration-300">
+          Ver menús
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué elegirnos para bodas -->
+  <section class="py-20 bg-marfil">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="section-label">Catering bodas Córdoba</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-negro font-light mb-6">
+            Tu boda, nuestra obra maestra
+          </h2>
+          <p class="text-secundario leading-relaxed mb-5">
+            El catering para bodas en Córdoba es nuestra especialidad. Sabemos que cada
+            pareja es única y que vuestra boda debe reflejar vuestra personalidad.
+            Por eso, diseñamos cada menú desde cero: escuchamos, proponemos y
+            ajustamos hasta que la propuesta sea perfecta.
+          </p>
+          <p class="text-secundario leading-relaxed mb-5">
+            Nos encargamos de absolutamente todo: desde el menú de la boda hasta el
+            servicio de mesa, los aperitivos de recepción, el banquete, la mesa dulce
+            y la barra de bebidas. Tú solo tienes que disfrutar del día más feliz de vuestra vida.
+          </p>
+          <ul class="space-y-3 text-sm text-secundario">
+            {[
+              'Degustación previa incluida en presupuesto',
+              'Personal de sala profesional y uniformado',
+              'Menús adaptados a alergias e intolerancias',
+              'Opciones vegetarianas y veganas',
+              'Coordinación total con el espacio o finca',
+              'Bodega seleccionada por nuestro sumiller',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-dorado mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <Image
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=80&fit=crop&auto=format"
+            alt="Banquete de boda con servicio de catering PuraCepa en Córdoba"
+            width={900}
+            height={700}
+            class="w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tipos de catering para bodas -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl text-negro font-light mb-4">
+          Formatos de Catering para Bodas
+        </h2>
+        <p class="text-secundario max-w-lg mx-auto">
+          Adaptamos el formato a vuestro estilo: desde el banquete más clásico
+          hasta la boda más vanguardista.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'Banquete sentado',
+            desc: 'El formato más elegante y tradicional. Menú de varios platos servidos en mesa, con un servicio impecable que cuida cada detalle.',
+          },
+          {
+            title: 'Cóctel y estaciones',
+            desc: 'Para bodas con un toque más dinámico y social. Pases de autor, estaciones gastronómicas y barras temáticas para crear ambiente.',
+          },
+          {
+            title: 'Mixto',
+            desc: 'Combinación perfecta: cóctel de bienvenida con aperitivos y luego banquete. La fórmula favorita para maximizar la experiencia.',
+          },
+        ].map((format) => (
+          <div class="border border-beige p-8 text-center hover:border-dorado/40 transition-colors duration-300">
+            <h3 class="font-serif text-xl text-negro mb-3 font-light">{format.title}</h3>
+            <p class="text-secundario text-sm leading-relaxed">{format.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Links internos -->
+  <section class="py-12 bg-beige/30">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-secundario text-sm">
+        También ofrecemos:{' '}
+        <a href="/catering-eventos-corporativos-cordoba" class="text-dorado hover:underline">Catering corporativo</a>,{' '}
+        <a href="/comuniones-cordoba" class="text-dorado hover:underline">Catering para comuniones</a>,{' '}
+        <a href="/menus-catering-cordoba" class="text-dorado hover:underline">Ver todos los menús</a>
+      </p>
+    </div>
+  </section>
+
+  <CTAFinal />
+  <ContactSection />
+</Layout>

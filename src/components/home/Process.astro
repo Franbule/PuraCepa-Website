@@ -1,0 +1,46 @@
+---
+import { processSteps } from '../../data/process';
+---
+
+<section class="py-24 lg:py-32 bg-beige/30" id="proceso">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Cabecera -->
+    <div class="text-center mb-16" data-animate>
+      <span class="section-label">Cómo trabajamos</span>
+      <span class="gold-line mx-auto mb-6"></span>
+      <h2 class="font-serif text-4xl sm:text-5xl text-negro font-light mb-5">
+        Nuestro Proceso
+      </h2>
+      <p class="text-secundario max-w-lg mx-auto text-base leading-relaxed">
+        De la primera llamada al último detalle, te acompañamos en cada paso
+        para que tu evento sea exactamente como lo imaginas.
+      </p>
+    </div>
+
+    <!-- Pasos -->
+    <div class="relative">
+      <!-- Línea horizontal (desktop) -->
+      <div class="hidden lg:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-dorado/30 to-transparent" aria-hidden="true"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        {processSteps.map((step, i) => (
+          <div
+            data-animate
+            data-delay={String(i * 100)}
+            class="text-center flex flex-col items-center"
+          >
+            <!-- Número -->
+            <div class="relative w-16 h-16 flex items-center justify-center border border-dorado/40 bg-marfil mb-6 z-10">
+              <span class="font-serif text-2xl text-dorado font-light">{step.number}</span>
+            </div>
+
+            <h3 class="font-serif text-lg text-negro mb-3 font-light">{step.title}</h3>
+            <p class="text-secundario text-sm leading-relaxed">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

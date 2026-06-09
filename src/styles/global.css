@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+@theme {
+  /* Colores de marca */
+  --color-marfil: #FAF7F2;
+  --color-beige: #E9DECB;
+  --color-negro: #161412;
+  --color-dorado: #BFA15F;
+  --color-dorado-claro: #D4BC85;
+  --color-secundario: #6B6560;
+
+  /* Tipografía */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+/* ─── Base ─── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-marfil);
+    color: var(--color-negro);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  ::selection {
+    background-color: var(--color-dorado);
+    color: #fff;
+  }
+}
+
+/* ─── Animaciones de scroll ─── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animate][data-delay="100"] { transition-delay: 0.1s; }
+[data-animate][data-delay="200"] { transition-delay: 0.2s; }
+[data-animate][data-delay="300"] { transition-delay: 0.3s; }
+[data-animate][data-delay="400"] { transition-delay: 0.4s; }
+[data-animate][data-delay="500"] { transition-delay: 0.5s; }
+[data-animate][data-delay="600"] { transition-delay: 0.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  [data-animate].in-view {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Línea decorativa dorada ─── */
+.gold-line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background-color: var(--color-dorado);
+}
+
+/* ─── Sección label (texto pequeño sobre el título) ─── */
+.section-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+  margin-bottom: 1rem;
+}
+
+/* ─── Separador dorado ─── */
+.gold-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-dorado), transparent);
+  margin: 2rem 0;
+}

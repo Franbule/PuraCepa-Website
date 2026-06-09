@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="relative py-28 overflow-hidden" id="cta-final">
+  <!-- Imagen de fondo -->
+  <Image
+    src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=1920&q=80&fit=crop&auto=format"
+    alt="Elegante mesa de boda con decoración floral y iluminación dorada"
+    width={1920}
+    height={800}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
+  />
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-negro/75"></div>
+
+  <div class="relative z-10 text-center text-white px-4 max-w-3xl mx-auto" data-animate>
+    <span class="section-label text-dorado-claro">Haz realidad tu evento</span>
+    <span class="gold-line mx-auto mb-8"></span>
+    <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+      Tu evento merece una experiencia inolvidable
+    </h2>
+    <p class="text-white/70 text-lg leading-relaxed mb-10 font-light">
+      Cuéntanos tu idea y recibirás una propuesta personalizada sin compromiso.
+      Trabajamos para hacer de tu celebración algo único.
+    </p>
+    <a
+      href="/contacto"
+      class="inline-block bg-dorado text-white px-10 py-4 text-sm font-medium tracking-widest uppercase hover:bg-dorado-claro transition-colors duration-300"
+    >
+      Solicita tu presupuesto gratuito
+    </a>
+  </div>
+</section>

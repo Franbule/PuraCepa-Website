@@ -1,0 +1,76 @@
+---
+import MobileMenu from './MobileMenu';
+
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/catering-cordoba', label: 'Servicios' },
+  { href: '/menus-catering-cordoba', label: 'Menús' },
+  { href: '/catering-bodas-cordoba', label: 'Bodas' },
+  { href: '/catering-eventos-corporativos-cordoba', label: 'Corporativo' },
+  { href: '/comuniones-cordoba', label: 'Comuniones' },
+  { href: '/contacto', label: 'Contacto' },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex flex-col leading-none"
+        aria-label="PuraCepa Catering — Inicio"
+      >
+        <span class="font-serif text-2xl font-light text-negro tracking-wide">PuraCepa</span>
+        <span class="text-[0.6rem] font-medium text-dorado tracking-[0.3em] uppercase">Catering</span>
+      </a>
+
+      <!-- Navegación desktop -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
+        {navLinks.slice(0, -1).map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-negro/75 hover:text-dorado transition-colors duration-200 tracking-wide"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/contacto"
+          class="bg-dorado text-white text-sm font-medium px-6 py-2.5 hover:bg-dorado-claro transition-colors duration-200 tracking-wide whitespace-nowrap"
+        >
+          Solicitar presupuesto
+        </a>
+      </nav>
+
+      <!-- Menú móvil (React island) -->
+      <MobileMenu client:load navLinks={navLinks} />
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    const header = document.getElementById('site-header');
+
+    function updateHeader() {
+      if (!header) return;
+      if (window.scrollY > 60) {
+        header.classList.add('bg-marfil/[0.97]', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-beige/50');
+      } else {
+        header.classList.remove('bg-marfil/[0.97]', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-beige/50');
+      }
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    document.addEventListener('astro:page-load', () => {
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      updateHeader();
+    });
+    updateHeader();
+  })();
+</script>

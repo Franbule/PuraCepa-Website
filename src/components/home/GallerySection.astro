@@ -1,0 +1,66 @@
+---
+import Gallery from './Gallery';
+
+const images = [
+  {
+    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80&fit=crop&auto=format',
+    alt: 'Elegante recepción de boda con iluminación cálida y mesas decoradas',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&q=80&fit=crop&auto=format',
+    alt: 'Mesa de boda con decoración floral y vajilla de lujo',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&q=80&fit=crop&auto=format',
+    alt: 'Emplatado gourmet de alta cocina para evento especial',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600&q=80&fit=crop&auto=format',
+    alt: 'Tarta nupcial elegante decorada con flores naturales',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=80&fit=crop&auto=format',
+    alt: 'Servicio de cócteles con copas de champagne en recepción',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=700&q=80&fit=crop&auto=format',
+    alt: 'Buffet de catering corporativo con presentación impecable',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&fit=crop&auto=format',
+    alt: 'Mesa dulce con repostería artesanal y postres de celebración',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&fit=crop&auto=format',
+    alt: 'Celebración privada con servicio de catering de lujo y flores',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80&fit=crop&auto=format',
+    alt: 'Chef preparando plato gourmet con ingredientes frescos de calidad',
+  },
+];
+---
+
+<section class="py-24 lg:py-32 bg-beige/40" id="galeria">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Cabecera -->
+    <div class="text-center mb-12" data-animate>
+      <span class="section-label">Momentos memorables</span>
+      <span class="gold-line mx-auto mb-6"></span>
+      <h2 class="font-serif text-4xl sm:text-5xl text-negro font-light mb-5">
+        Nuestra Galería
+      </h2>
+      <p class="text-secundario max-w-lg mx-auto text-base leading-relaxed">
+        Imágenes de algunas de las celebraciones que hemos tenido el privilegio
+        de hacer realidad.
+      </p>
+    </div>
+
+    <!-- Galería con lightbox (isla React) -->
+    <div data-animate data-delay="200">
+      <Gallery images={images} client:visible />
+    </div>
+
+  </div>
+</section>

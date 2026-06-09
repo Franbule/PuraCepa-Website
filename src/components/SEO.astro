@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage: string;
+  ogType?: string;
+}
+
+const { title, description, canonical, ogImage, ogType = 'website' } = Astro.props;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:site_name" content="PuraCepa Catering" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />

@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { menus } from '../data/menus';
+import CTAFinal from '../components/home/CTAFinal.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+---
+
+<Layout
+  title="Menús de Catering en Córdoba para Bodas y Eventos | PuraCepa Catering"
+  description="Menús de catering en Córdoba para bodas, eventos corporativos, comuniones y celebraciones. Propuestas gastronómicas a medida con ingredientes de calidad. Solicita presupuesto."
+  canonical="/menus-catering-cordoba"
+>
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 bg-negro text-white overflow-hidden">
+    <Image
+      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80&fit=crop&auto=format"
+      alt="Chef de PuraCepa Catering preparando platos para evento en Córdoba"
+      width={1920}
+      height={600}
+      class="absolute inset-0 w-full h-full object-cover opacity-35"
+      loading="eager"
+    />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="section-label text-dorado-claro">Alta gastronomía</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+        Menús de Catering en Córdoba para Bodas y Eventos
+      </h1>
+      <p class="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto">
+        Cada menú es una propuesta viva, diseñada para adaptarse a tu evento,
+        tus gustos y los de tus invitados. Aquí encontrarás nuestra carta de
+        referencia — todos los menús pueden personalizarse completamente.
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-16 bg-marfil">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-secundario leading-relaxed mb-4">
+        En PuraCepa Catering diseñamos menús de catering en Córdoba que combinan
+        la tradición culinaria andaluza con las últimas tendencias gastronómicas.
+        Seleccionamos ingredientes frescos y de temporada, apostando por productores
+        locales y por una cocina honesta que sorprende.
+      </p>
+      <p class="text-secundario leading-relaxed">
+        Los <strong class="text-negro font-medium">precios son orientativos</strong> y se ajustan
+        en función del número de invitados, personalización del menú y tipo de servicio.
+        Solicita tu presupuesto sin compromiso.
+      </p>
+    </div>
+  </section>
+
+  <!-- Menús -->
+  {menus.map((menu, menuIdx) => (
+    <section
+      id={menu.id}
+      class:list={['py-20', menuIdx % 2 === 0 ? 'bg-white' : 'bg-marfil']}
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+
+          <!-- Info del menú -->
+          <div class="lg:col-span-2">
+            <Image
+              src={menu.image}
+              alt={menu.imageAlt}
+              width={700}
+              height={500}
+              class="w-full object-cover mb-6"
+              loading="lazy"
+            />
+            <span class="section-label">{menu.eventType}</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-negro font-light mb-3">
+              {menu.name}
+            </h2>
+            <p class="text-secundario italic mb-4 font-light">{menu.tagline}</p>
+            <hr class="gold-divider" />
+            <!-- PLACEHOLDER: precio orientativo, sustituir por el real -->
+            <p class="text-dorado font-medium text-lg mb-6">{menu.price}</p>
+            <a
+              href="/contacto"
+              class="inline-block bg-dorado text-white px-6 py-3 text-sm font-medium tracking-widest uppercase hover:bg-dorado-claro transition-colors duration-300"
+            >
+              Solicitar este menú
+            </a>
+          </div>
+
+          <!-- Desglose del menú -->
+          <div class="lg:col-span-3 space-y-8">
+            {menu.sections.map((section) => (
+              <div>
+                <h3 class="font-serif text-lg text-negro font-light mb-4 pb-2 border-b border-dorado/30 uppercase tracking-widest text-sm">
+                  {section.title}
+                </h3>
+                <ul class="space-y-2">
+                  {section.dishes.map((dish) => (
+                    <li class="flex items-start gap-3 text-sm">
+                      <span class="text-dorado mt-1.5 flex-shrink-0" aria-hidden="true">◆</span>
+                      <span class="text-negro font-medium">{dish.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <p class="text-secundario text-xs italic pt-2">
+              * Este menú puede adaptarse completamente a vuestras preferencias,
+              alergias e intolerancias alimentarias.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Nota PDF (preparada para cuando el cliente aporte el archivo) -->
+  <!--
+    Si el cliente proporciona el PDF con los menús completos,
+    colocar el archivo en /public/menus-puracepa-catering.pdf
+    y descomentar el botón siguiente:
+  -->
+  <!--
+  <section class="py-10 bg-beige/30 text-center">
+    <a
+      href="/menus-puracepa-catering.pdf"
+      download
+      class="inline-flex items-center gap-2 border border-dorado text-dorado px-8 py-3 text-sm font-medium tracking-widest uppercase hover:bg-dorado hover:text-white transition-all duration-300"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+      </svg>
+      Descargar carta de menús (PDF)
+    </a>
+  </section>
+  -->
+
+  <!-- CTA y enlaces internos -->
+  <section class="py-12 bg-negro text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <p class="text-white/60 text-sm mb-6">
+        ¿Buscas algo diferente? Todos nuestros menús se personalizan al 100%.
+        Cuéntanos tu idea y creamos la propuesta perfecta para tu evento.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center text-xs text-white/40">
+        <a href="/catering-bodas-cordoba" class="hover:text-dorado transition-colors duration-200">Catering bodas</a>
+        <span aria-hidden="true">·</span>
+        <a href="/catering-eventos-corporativos-cordoba" class="hover:text-dorado transition-colors duration-200">Eventos corporativos</a>
+        <span aria-hidden="true">·</span>
+        <a href="/comuniones-cordoba" class="hover:text-dorado transition-colors duration-200">Comuniones</a>
+        <span aria-hidden="true">·</span>
+        <a href="/catering-cordoba" class="hover:text-dorado transition-colors duration-200">Catering en Córdoba</a>
+      </div>
+    </div>
+  </section>
+
+  <CTAFinal />
+  <ContactSection />
+</Layout>

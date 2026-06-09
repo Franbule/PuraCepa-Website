@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import CTAFinal from '../components/home/CTAFinal.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+---
+
+<Layout
+  title="Catering para Eventos Corporativos en Córdoba | PuraCepa Catering"
+  description="Catering para eventos corporativos en Córdoba: reuniones de empresa, team buildings, presentaciones y galas. Servicio profesional, puntual y de alta calidad."
+  canonical="/catering-eventos-corporativos-cordoba"
+>
+  <!-- Hero -->
+  <section class="relative pt-32 pb-24 bg-negro text-white overflow-hidden">
+    <Image
+      src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1920&q=80&fit=crop&auto=format"
+      alt="Catering corporativo en Córdoba con buffet elegante y servicio profesional"
+      width={1920}
+      height={700}
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+      loading="eager"
+    />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="section-label text-dorado-claro">Eventos de empresa en Córdoba</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+        Catering para Eventos Corporativos en Córdoba
+      </h1>
+      <p class="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+        Presentaciones, galas, team buildings o reuniones de alto nivel.
+        PuraCepa Catering ofrece soluciones de catering corporativo en Córdoba
+        con la profesionalidad que tu empresa merece.
+      </p>
+      <a href="/contacto" class="inline-block bg-dorado text-white px-8 py-4 text-sm font-medium tracking-widest uppercase hover:bg-dorado-claro transition-colors duration-300">
+        Solicitar presupuesto
+      </a>
+    </div>
+  </section>
+
+  <!-- Contenido SEO -->
+  <section class="py-20 bg-marfil">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="section-label">Catering corporativo Córdoba</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-negro font-light mb-6">
+            El catering que eleva la imagen de tu empresa
+          </h2>
+          <p class="text-secundario leading-relaxed mb-5">
+            Un evento corporativo bien ejecutado es una poderosa herramienta de
+            comunicación. Nuestro catering para eventos de empresa en Córdoba combina
+            gastronomía de calidad, presentación impecable y un servicio discreto
+            y profesional que cuida cada detalle.
+          </p>
+          <p class="text-secundario leading-relaxed mb-5">
+            Trabajamos con grandes empresas, pymes y organismos públicos en
+            Córdoba y provincia, adaptando nuestra propuesta a cada tipo de evento:
+            desde un coffee break informal hasta una gala de empresa de 500 personas.
+          </p>
+          <ul class="space-y-3 text-sm text-secundario">
+            {[
+              'Reuniones, juntas y presentaciones',
+              'Galas y cenas de empresa',
+              'Team buildings y eventos de incentivos',
+              'Inauguraciones y vernissages',
+              'Coffee breaks y desayunos de trabajo',
+              'Cócteles de networking',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-dorado mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <Image
+            src="https://images.unsplash.com/photo-1538688423619-a81d3f23454b?w=900&q=80&fit=crop&auto=format"
+            alt="Evento corporativo con catering de PuraCepa en Córdoba"
+            width={900}
+            height={700}
+            class="w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links internos -->
+  <section class="py-12 bg-beige/30">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-secundario text-sm">
+        Descubre también:{' '}
+        <a href="/catering-bodas-cordoba" class="text-dorado hover:underline">Catering para bodas</a>,{' '}
+        <a href="/comuniones-cordoba" class="text-dorado hover:underline">Comuniones</a>,{' '}
+        <a href="/menus-catering-cordoba" class="text-dorado hover:underline">Ver menús</a>
+      </p>
+    </div>
+  </section>
+
+  <CTAFinal />
+  <ContactSection />
+</Layout>

@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import CTAFinal from '../components/home/CTAFinal.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+import { services } from '../data/services';
+---
+
+<Layout
+  title="Catering en Córdoba para Todo Tipo de Eventos | PuraCepa Catering"
+  description="Empresa de catering en Córdoba especializada en bodas, eventos corporativos, comuniones y celebraciones. Gastronomía premium, servicio personalizado y experiencia contrastada."
+  canonical="/catering-cordoba"
+>
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 bg-negro text-white overflow-hidden">
+    <Image
+      src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1920&q=80&fit=crop&auto=format"
+      alt="Servicio de catering en Córdoba con presentación premium"
+      width={1920}
+      height={700}
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+      loading="eager"
+    />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="section-label text-dorado-claro">Empresa de catering en Córdoba</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight">
+        Catering en Córdoba para Todo Tipo de Eventos
+      </h1>
+      <p class="text-white/75 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+        En PuraCepa Catering llevamos años siendo la empresa de catering de referencia en
+        Córdoba. Desde bodas íntimas hasta grandes eventos corporativos, diseñamos
+        propuestas gastronómicas únicas para cada celebración.
+      </p>
+      <a href="/contacto" class="inline-block bg-dorado text-white px-8 py-4 text-sm font-medium tracking-widest uppercase hover:bg-dorado-claro transition-colors duration-300">
+        Pedir presupuesto
+      </a>
+    </div>
+  </section>
+
+  <!-- Intro SEO -->
+  <section class="py-20 bg-marfil">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="section-label">¿Qué hacemos?</span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-negro font-light mb-6">
+        Tu empresa de catering de confianza en Córdoba
+      </h2>
+      <p class="text-secundario leading-relaxed mb-5">
+        Somos una empresa de catering en Córdoba comprometida con la calidad gastronómica
+        y la excelencia en el servicio. Nuestro equipo de chefs y coordinadores de eventos
+        trabaja para que cada celebración sea exactamente como la imaginas.
+      </p>
+      <p class="text-secundario leading-relaxed">
+        Ofrecemos catering en Córdoba para <a href="/catering-bodas-cordoba" class="text-dorado hover:underline">bodas</a>,
+        <a href="/catering-eventos-corporativos-cordoba" class="text-dorado hover:underline">eventos corporativos</a>,
+        <a href="/comuniones-cordoba" class="text-dorado hover:underline">comuniones</a>,
+        bautizos y cualquier tipo de celebración privada. Cada menú se diseña a medida,
+        con ingredientes frescos y de calidad, seleccionados especialmente para tu evento.
+      </p>
+    </div>
+  </section>
+
+  <!-- Servicios grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl text-negro font-light mb-4">
+          Servicios de Catering en Córdoba
+        </h2>
+        <p class="text-secundario max-w-lg mx-auto">
+          Cubrimos todo tipo de eventos con la misma exigencia y dedicación.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((s) => (
+          <a
+            href={s.href}
+            class="group block border border-beige hover:border-dorado/40 p-6 transition-colors duration-300"
+          >
+            <h3 class="font-serif text-xl text-negro mb-3 font-light group-hover:text-dorado transition-colors duration-200">
+              {s.title}
+            </h3>
+            <p class="text-secundario text-sm leading-relaxed">{s.description}</p>
+            <span class="inline-flex items-center gap-2 text-dorado text-xs font-medium tracking-widest uppercase mt-4">
+              Más info
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA y contacto -->
+  <CTAFinal />
+  <ContactSection />
+</Layout>

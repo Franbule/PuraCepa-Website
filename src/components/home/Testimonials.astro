@@ -1,0 +1,55 @@
+---
+// PLACEHOLDER: sustituir por reseñas reales antes de publicar
+import { testimonials } from '../../data/testimonials';
+---
+
+<section class="py-24 lg:py-32 bg-negro text-white" id="testimonios">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Cabecera -->
+    <div class="text-center mb-16" data-animate>
+      <span class="section-label text-dorado-claro">Lo que dicen de nosotros</span>
+      <span class="gold-line mx-auto mb-6"></span>
+      <h2 class="font-serif text-4xl sm:text-5xl font-light mb-5">
+        Clientes Satisfechos
+      </h2>
+      <!-- PLACEHOLDER: sustituir testimonios por reseñas reales antes de publicar -->
+      <p class="text-white/50 max-w-md mx-auto text-sm leading-relaxed italic">
+        Algunas de las experiencias que nuestros clientes han compartido con nosotros.
+      </p>
+    </div>
+
+    <!-- Cards de testimonios -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((t, i) => (
+        <blockquote
+          data-animate
+          data-delay={String(i * 150)}
+          class="border border-white/10 p-8 hover:border-dorado/40 transition-colors duration-300"
+        >
+          <!-- Estrellas -->
+          <div class="flex gap-1 mb-6" aria-label={`Valoración: ${t.rating} de 5 estrellas`}>
+            {Array.from({ length: t.rating }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-dorado" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+
+          <p class="text-white/70 text-sm leading-relaxed mb-6 font-light italic">
+            "{t.text}"
+          </p>
+
+          <footer class="flex items-center gap-3">
+            <span class="gold-line" style="width: 24px; flex-shrink: 0;"></span>
+            <div>
+              <cite class="font-serif text-white not-italic text-base">{t.name}</cite>
+              <p class="text-dorado text-xs tracking-wide mt-0.5">{t.event}</p>
+            </div>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+
+  </div>
+</section>
