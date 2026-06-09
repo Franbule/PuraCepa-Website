@@ -1,5 +1,3 @@
-// PLACEHOLDER: sustituir por los menús y precios reales del cliente antes de publicar
-
 export interface Dish {
   name: string;
   description?: string;
@@ -8,6 +6,7 @@ export interface Dish {
 export interface MenuSection {
   title: string;
   dishes: Dish[];
+  note?: string;
 }
 
 export interface Menu {
@@ -15,7 +14,7 @@ export interface Menu {
   name: string;
   tagline: string;
   eventType: string;
-  price: string; // "Desde XX €/persona" o "Presupuesto personalizado"
+  price: string;
   image: string;
   imageAlt: string;
   featured?: boolean;
@@ -24,204 +23,128 @@ export interface Menu {
 
 export const menus: Menu[] = [
   {
-    id: 'clasico',
-    name: 'Menú Clásico',
-    tagline: 'Tradición y calidad en cada plato',
-    eventType: 'Bodas · Celebraciones',
-    price: 'Desde XX €/persona', // PLACEHOLDER
+    id: 'punto-gourmet',
+    name: 'Menú Punto Gourmet',
+    tagline: 'Estaciones gastronómicas para eventos sociales y corporativos',
+    eventType: 'Cócteles · Eventos Corporativos · Celebraciones',
+    price: 'Consultar presupuesto',
     image:
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop&auto=format',
-    imageAlt: 'Presentación elegante de plato clásico de alta cocina',
+      'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=80&fit=crop&auto=format',
+    imageAlt: 'Estaciones gastronómicas de cóctel con selección de productos premium',
     featured: true,
     sections: [
       {
-        title: 'Aperitivos',
+        title: 'Estaciones gastronómicas',
+        note: 'Mínimo 50 comensales',
         dishes: [
-          { name: 'Selección de ibéricos y quesos artesanos' },
-          { name: 'Croquetas de jamón ibérico' },
-          { name: 'Tostas de foie con mermelada de higos' },
-          { name: 'Montaditos de salmón ahumado' },
+          { name: 'Punto Tortilla' },
+          { name: 'Punto El Soldado' },
+          { name: 'Punto de Quesos Variados' },
+          { name: 'Punto de Ibéricos del Valle de los Pedroches' },
+          { name: 'Punto de Ahumados y Salazones' },
+          { name: 'Punto de Carnes Asadas' },
+          { name: 'Punto de Pescados' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'con-protocolo',
+    name: 'Menú con Protocolo',
+    tagline: 'Menú sentado para celebraciones formales y eventos de empresa',
+    eventType: 'Bodas · Eventos Institucionales · Empresa',
+    price: 'Consultar presupuesto',
+    image:
+      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop&auto=format',
+    imageAlt: 'Mesa con protocolo y servicio de alta cocina para evento formal',
+    featured: true,
+    sections: [
+      {
+        title: 'Primer plato (a elegir)',
+        dishes: [
+          { name: 'Salmón marinado con aceite de oliva virgen extra' },
+          { name: 'Ensalada variada de temporada' },
+          { name: 'Bacalao confitado con aceite de oliva y pil-pil' },
+          { name: 'Lasaña de pesto manchego' },
+          { name: 'Rodaballo con pimientos asados' },
+          { name: 'Canelones de setas con bechamel y queso' },
+          { name: 'Risotto de boletus y gambas' },
+          { name: 'Terrina rellena de carne' },
+          { name: 'Tartar de salmón' },
+          { name: 'Tartar de atún' },
+          { name: 'Steak tartar' },
         ],
       },
       {
-        title: 'Primer plato',
+        title: 'Segundo plato (a elegir)',
         dishes: [
-          { name: 'Ensalada templada de gambas con vinagreta de cítricos' },
-          { name: 'Crema de espárragos blancos con hueva de trucha' },
+          { name: 'Carrillera de cerdo deshuesada rellena de foie y arándanos' },
+          { name: 'Cochinillo crujiente asado con finas capas de hojaldre' },
+          { name: 'Carrillada confitada' },
+          { name: 'Secreto ibérico confitado a baja temperatura' },
+          { name: 'Presa ibérica con guarnición de patatas panaderas' },
         ],
       },
       {
-        title: 'Segundo plato',
+        title: 'Postres (a elegir)',
         dishes: [
-          { name: 'Solomillo de ternera con salsa de trufa y patata confitada' },
-          { name: 'Lubina al horno con verduras de temporada' },
+          { name: 'Leche frita' },
+          { name: 'Tarta de leche de coco' },
+          { name: 'Volcán de chocolate' },
+          { name: 'Coulant de chocolate' },
+          { name: 'Tarta de zanahoria' },
+          { name: 'Tarta de queso manchego' },
+        ],
+      },
+      {
+        title: 'Opciones adicionales',
+        dishes: [
+          { name: 'Quesos seleccionados' },
+          { name: 'Ahumados' },
+          { name: 'Especialidades rebozadas' },
+          { name: 'Eventos personalizados bajo demanda' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'pura-cepa',
+    name: 'Menú Pura Cepa',
+    tagline: 'Nuestra selección más representativa — la experiencia definitiva',
+    eventType: 'Bodas · Celebraciones · Eventos Especiales',
+    price: 'Consultar presupuesto',
+    image:
+      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80&fit=crop&auto=format',
+    imageAlt: 'Selección de platos premium del Menú Pura Cepa con productos de máxima calidad',
+    sections: [
+      {
+        title: 'Propuesta gastronómica',
+        dishes: [
+          { name: 'Surtido de quesos con denominación de origen de leche cruda' },
+          { name: 'Surtido de ibéricos del Valle de los Pedroches' },
+          { name: 'Selección de ahumados gourmet' },
+          { name: 'Salmorejo cordobés con virutas de jamón ibérico' },
+          { name: 'Medallón de mango con reducción de Pedro Ximénez y frutos secos' },
+          { name: 'Tartar de salmón servido en cuchara' },
+          { name: 'Surtido de mini croquetas artesanas' },
+          { name: 'Muslitos de codorniz en escabeche' },
+          { name: 'Presa ibérica de bellota a la brasa' },
+        ],
+      },
+      {
+        title: 'Bebidas',
+        dishes: [
+          { name: 'Selección de bebidas incluida según evento' },
         ],
       },
       {
         title: 'Postres',
         dishes: [
-          { name: 'Tarta nupcial (o pastel de celebración) por encargo' },
-          { name: 'Selección de petit fours y dulces artesanos' },
-        ],
-      },
-      {
-        title: 'Bebidas',
-        dishes: [
-          { name: 'Vinos seleccionados (blanco, tinto y cava)' },
-          { name: 'Agua, refrescos y café' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'gourmet',
-    name: 'Menú Gourmet',
-    tagline: 'Alta cocina para momentos excepcionales',
-    eventType: 'Bodas · Eventos Exclusivos',
-    price: 'Desde XX €/persona', // PLACEHOLDER
-    image:
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80&fit=crop&auto=format',
-    imageAlt: 'Presentación gourmet con emplatado de alta cocina creativa',
-    featured: true,
-    sections: [
-      {
-        title: 'Aperitivos',
-        dishes: [
-          { name: 'Degustación de jamón ibérico de bellota cortado al momento' },
-          { name: 'Ostras frescas con mignonette' },
-          { name: 'Tartar de atún rojo con aguacate y ponzu' },
-          { name: 'Crujiente de queso manchego con membrillo' },
-          { name: 'Pintxos de langostino con alioli de azafrán' },
-        ],
-      },
-      {
-        title: 'Entrante',
-        dishes: [
-          { name: 'Vieiras a la plancha con puré de coliflor y trufa negra' },
-          { name: 'Tartar de wagyu con yema curada y mostaza antigua' },
-        ],
-      },
-      {
-        title: 'Principal',
-        dishes: [
-          { name: 'Lomo de buey madurado 45 días con jus de carne y grosellas' },
-          { name: 'Rodaballo salvaje al vapor con emulsión de percebes' },
-        ],
-      },
-      {
-        title: 'Pre-postre y postre',
-        dishes: [
-          { name: 'Sorbete de yuzu con espuma de albahaca' },
-          { name: 'Torrija caramelizada con helado de vainilla bourbon' },
-        ],
-      },
-      {
-        title: 'Maridaje',
-        dishes: [
-          { name: 'Selección de vinos DO Ribera, Rioja y Priorat' },
-          { name: 'Cava Brut Nature y champagne para el brindis' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'coctel',
-    name: 'Menú Cóctel',
-    tagline: 'Pases creativos y estaciones gastronómicas',
-    eventType: 'Eventos Corporativos · Recepciones',
-    price: 'Desde XX €/persona', // PLACEHOLDER
-    image:
-      'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=80&fit=crop&auto=format',
-    imageAlt: 'Servicio de cóctel con pases elegantes y barras temáticas',
-    sections: [
-      {
-        title: 'Fríos',
-        dishes: [
-          { name: 'Mini-brochetas caprese con pesto de rúcula' },
-          { name: 'Tartaletas de salmón con crema de eneldo' },
-          { name: 'Blinis de caviar y crème fraîche' },
-          { name: 'Cucharillas de gazpacho cordobés' },
-        ],
-      },
-      {
-        title: 'Calientes',
-        dishes: [
-          { name: 'Croquetas de bacalao al pil-pil' },
-          { name: 'Mini-hamburguesas de wagyu con queso brie' },
-          { name: 'Hojaldre de champiñón y foie' },
-          { name: 'Rabas de calamar con alioli negro' },
-        ],
-      },
-      {
-        title: 'Estación de quesos',
-        dishes: [
-          { name: 'Tabla de quesos artesanos nacionales con frutos secos y mermeladas' },
-        ],
-      },
-      {
-        title: 'Dulces',
-        dishes: [
-          { name: 'Macarons, bombones y petit fours artesanos' },
-          { name: 'Mini-tartas y mousse en vasito' },
-        ],
-      },
-      {
-        title: 'Bebidas',
-        dishes: [
-          { name: 'Barra libre de vinos, cava, cócteles sin alcohol y refrescos' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'comunion',
-    name: 'Menú Comunión',
-    tagline: 'Celebración familiar con sabor a recuerdo',
-    eventType: 'Comuniones · Bautizos',
-    price: 'Desde XX €/persona', // PLACEHOLDER
-    image:
-      'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80&fit=crop&auto=format',
-    imageAlt: 'Mesa dulce y catering para comunión con repostería artesanal',
-    sections: [
-      {
-        title: 'Aperitivos',
-        dishes: [
-          { name: 'Selección de ibéricos y quesos' },
-          { name: 'Croquetas variadas (jamón y queso)' },
-          { name: 'Empanadas y empanadillas caseras' },
-        ],
-      },
-      {
-        title: 'Primer plato',
-        dishes: [
-          { name: 'Ensalada mixta con atún y huevo duro' },
-          { name: 'Menestra de verduras salteadas' },
-        ],
-      },
-      {
-        title: 'Segundo plato',
-        dishes: [
-          { name: 'Pollo asado al limón con patatas panaderas' },
-          { name: 'Merluza al horno con pimiento y tomate' },
-        ],
-      },
-      {
-        title: 'Mesa dulce',
-        dishes: [
-          { name: 'Tarta de celebración personalizada' },
-          { name: 'Chuches, nubes y golosinas para los más pequeños' },
-          { name: 'Bollería artesana variada' },
-        ],
-      },
-      {
-        title: 'Bebidas',
-        dishes: [
-          { name: 'Vino, cava, refrescos, agua y zumos' },
+          { name: 'Surtido de pastelillos de bocado' },
         ],
       },
     ],
   },
 ];
 
-// Datos de muestra para la sección de la Home (adelanto)
 export const featuredMenus = menus.filter((m) => m.featured);

@@ -77,7 +77,6 @@ import ContactSection from '../components/home/ContactSection.astro';
             </h2>
             <p class="text-secundario italic mb-4 font-light">{menu.tagline}</p>
             <hr class="gold-divider" />
-            <!-- PLACEHOLDER: precio orientativo, sustituir por el real -->
             <p class="text-dorado font-medium text-lg mb-6">{menu.price}</p>
             <a
               href="/contacto"
@@ -91,9 +90,14 @@ import ContactSection from '../components/home/ContactSection.astro';
           <div class="lg:col-span-3 space-y-8">
             {menu.sections.map((section) => (
               <div>
-                <h3 class="font-serif text-lg text-negro font-light mb-4 pb-2 border-b border-dorado/30 uppercase tracking-widest text-sm">
-                  {section.title}
-                </h3>
+                <div class="flex items-baseline gap-4 pb-2 border-b border-dorado/30 mb-4">
+                  <h3 class="font-serif text-negro font-light uppercase tracking-widest text-sm">
+                    {section.title}
+                  </h3>
+                  {section.note && (
+                    <span class="text-dorado text-xs font-medium tracking-wide">— {section.note}</span>
+                  )}
+                </div>
                 <ul class="space-y-2">
                   {section.dishes.map((dish) => (
                     <li class="flex items-start gap-3 text-sm">
