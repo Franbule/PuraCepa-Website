@@ -55,22 +55,14 @@ const navLinks = [
 
 <script is:inline>
   (function () {
-    const header = document.getElementById('site-header');
-
     function updateHeader() {
+      const header = document.getElementById('site-header');
       if (!header) return;
-      if (window.scrollY > 60) {
-        header.classList.add('bg-marfil/[0.97]', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-beige/50');
-      } else {
-        header.classList.remove('bg-marfil/[0.97]', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-beige/50');
-      }
+      header.classList.toggle('header-scrolled', window.scrollY > 60);
     }
 
     window.addEventListener('scroll', updateHeader, { passive: true });
-    document.addEventListener('astro:page-load', () => {
-      window.addEventListener('scroll', updateHeader, { passive: true });
-      updateHeader();
-    });
+    document.addEventListener('astro:page-load', updateHeader);
     updateHeader();
   })();
 </script>

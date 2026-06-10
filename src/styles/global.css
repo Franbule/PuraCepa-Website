@@ -88,6 +88,15 @@
   margin-bottom: 1rem;
 }
 
+/* ─── Header scrolled state ─── */
+#site-header.header-scrolled {
+  background-color: color-mix(in srgb, var(--color-marfil) 97%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-beige) 50%, transparent);
+}
+
 /* ─── Separador dorado ─── */
 .gold-divider {
   border: none;
