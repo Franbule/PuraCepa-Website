@@ -25,16 +25,16 @@ const navLinks = [
         class="flex flex-col leading-none"
         aria-label="PuraCepa Catering — Inicio"
       >
-        <span class="font-serif text-2xl font-light text-negro tracking-wide">PuraCepa</span>
+        <span id="logo-text" class="font-serif text-2xl font-light tracking-wide transition-colors duration-300 text-white">PuraCepa</span>
         <span class="text-[0.6rem] font-medium text-dorado tracking-[0.3em] uppercase">Catering</span>
       </a>
 
       <!-- Navegación desktop -->
-      <nav class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
+      <nav id="nav-links" class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
         {navLinks.slice(0, -1).map((link) => (
           <a
             href={link.href}
-            class="text-sm font-medium text-negro/75 hover:text-dorado transition-colors duration-200 tracking-wide"
+            class="nav-link text-sm font-medium transition-colors duration-300 hover:text-dorado tracking-wide text-white/90"
           >
             {link.label}
           </a>
@@ -57,8 +57,19 @@ const navLinks = [
   (function () {
     function updateHeader() {
       const header = document.getElementById('site-header');
+      const logoText = document.getElementById('logo-text');
+      const navLinks = document.querySelectorAll('.nav-link');
       if (!header) return;
-      header.classList.toggle('header-scrolled', window.scrollY > 60);
+
+      const scrolled = window.scrollY > 60;
+      header.classList.toggle('header-scrolled', scrolled);
+
+      if (logoText) {
+        logoText.style.color = scrolled ? 'var(--color-negro)' : '#ffffff';
+      }
+      navLinks.forEach(function(link) {
+        link.style.color = scrolled ? 'rgb(22 20 18 / 0.75)' : 'rgb(255 255 255 / 0.9)';
+      });
     }
 
     window.addEventListener('scroll', updateHeader, { passive: true });
