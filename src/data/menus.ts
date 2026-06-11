@@ -62,9 +62,9 @@ export const menus: Menu[] = [
       {
         title: 'Primer plato (a elegir)',
         dishes: [
-          { name: 'Salmón marinado con aceite de oliva virgen extra' },
+          { name: 'Salmón marinado con aceite de oliva virgen extra y salsa tartara' },
           { name: 'Ensalada variada de temporada' },
-          { name: 'Bacalao confitado con aceite de oliva al pil-pil' },
+          { name: 'Bacalao confitado con aceite de oliva al pil-pil con base de pisto manchego' },
           { name: 'Lasaña de pesto manchego' },
           { name: 'Rodaballo a la sal y pimienta' },
           { name: 'Canelones de setas con bechamel y queso' },
@@ -78,11 +78,11 @@ export const menus: Menu[] = [
       {
         title: 'Segundo plato (a elegir)',
         dishes: [
-          { name: 'Contramuslo de cerdo deshuesada rellena de foie y arándanos' },
+          { name: 'Contramuslo de capon deshuesado relleno de foie y arándanos' },
           { name: 'Cochinillo crujiente asado con finas capas de hojaldre' },
           { name: 'Carrillada confitada' },
           { name: 'Secreto ibérico confitado a baja temperatura' },
-          { name: 'Presa ibérica con guarnición de patatas panaderas' },
+          { name: 'Presa ibérica con guarnición de patatas panaderas' }, 
         ],
       },
       {
